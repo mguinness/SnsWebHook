@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <Authors>mguinness</Authors>
+    <Company />
+    <Description>Webhook support for Amazon SNS in ASP.NET Core.</Description>
+    <PackageTags>aspnetcore webhook sns</PackageTags>
+    <Product>Amazon SNS Webhook</Product>
+    <RepositoryUrl>https://github.com/mguinness/SnsWebHook</RepositoryUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AWSSDK.SimpleNotificationService" Version="3.3.1" />
+    <PackageReference Include="Microsoft.AspNetCore.WebHooks.Receivers" Version="1.0.0-preview2-final" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Extensions\" />
+    <Folder Include="Filters\" />
+    <Folder Include="Internal\" />
+    <Folder Include="Metadata\" />
+  </ItemGroup>
+
+</Project>
