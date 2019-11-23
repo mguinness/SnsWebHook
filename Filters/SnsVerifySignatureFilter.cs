@@ -48,6 +48,11 @@ namespace Microsoft.AspNetCore.WebHooks.Filters
                     return;
                 }
             }
+            else
+            {
+                await next();
+                return;
+            }
 
             var eventName = GetRequestHeader(request, SnsConstants.EventPropertyName, out IActionResult errorResultMsgType);
             if (errorResultMsgType != null)
@@ -57,6 +62,15 @@ namespace Microsoft.AspNetCore.WebHooks.Filters
             }
 
             routeData.Values[WebHookConstants.EventKeyName] = eventName;
+
+            var idName = GetRequestHeader(request, SnsConstants.IdPropertyName, out IActionResult errorResultTopicArn);
+            if (errorResultTopicArn != null)
+            {
+                context.Result = errorResultTopicArn;
+                return;
+            }
+
+            routeData.Values[WebHookConstants.IdKeyName] = idName;
 
             /*var secretKey = GetSecretKey(ReceiverName, routeData, SnsConstants.SecretKeyMinLength, SnsConstants.SecretKeyMaxLength);
             if (secretKey == null)

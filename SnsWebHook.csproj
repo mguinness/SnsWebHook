@@ -8,6 +8,7 @@
     <PackageTags>aspnetcore webhook sns</PackageTags>
     <Product>Amazon SNS Webhook</Product>
     <RepositoryUrl>https://github.com/mguinness/SnsWebHook</RepositoryUrl>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
